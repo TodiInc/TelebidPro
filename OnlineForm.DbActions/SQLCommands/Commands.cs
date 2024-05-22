@@ -10,22 +10,25 @@ namespace OnlineForm.DbActions.SQLCommands
     internal class Commands
     {
         // User sql commands
-        public string CreateUser()
+        public string CreateUser(string firstNamePlaceholder, string lastNamePlaceholder, string emailPlaceholder, string passwordPlaceholder)
         {
             return $@"INSERT INTO Users ({User.FirstNameColumn}, {User.LastNameColumn}, {User.EmailColumn}, {User.PasswordColumn})
-                     VALUES ('Todi','Boi','todiboi@gmail.com','nqmavreme');";
+                     VALUES ({firstNamePlaceholder}, {lastNamePlaceholder}, {emailPlaceholder}, {passwordPlaceholder});";
         }
-        public string GetUser()
+        public string GetUserById(string idPlaceholder)
         {
-            return "SELECT Id FROM USERS WHERE Id = 1";
+            return $"SELECT * FROM USERS WHERE Id = {idPlaceholder};";
         }
-        public string UpdateUser()
+        public string GetUserByNameAndPasswordAndEmail()
+        {
+            return $"SELECT * FROM USERS WHERE Id = {idPlaceholder};";
+        }
+        public string UpdateUser(string firstNamePlaceholder, string lastNamePlaceholder, string passwordPlaceholder)
         {
             return $@"UPDATE Users
-                     SET {User.FirstNameColumn} = 'Yogi', 
-                         {User.LastNameColumn} = 'Lori', 
-                         {User.EmailColumn} = 'yogilori@gmail.com', 
-                         {User.PasswordColumn} = 'vecheimavreme';";
+                     SET {User.FirstNameColumn} = {firstNamePlaceholder}, 
+                         {User.LastNameColumn} = {lastNamePlaceholder},
+                         {User.PasswordColumn} = {passwordPlaceholder};";
         }
     }
 }
