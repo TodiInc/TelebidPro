@@ -1,0 +1,11 @@
+﻿CREATE DATABASE OnlineFormDb
+
+USE OnlineFormDb;
+
+CREATE TABLE Users (
+	UserID INT IDENTITY(1,1),
+	FirstName VARCHAR(255) NOT NULL,
+	LastName VARCHAR(255) NOT NULL,
+	Email VARCHAR(255) NOT NULL,
+	Password VARCHAR(255) NOT NULL
+);
